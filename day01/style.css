@@ -1,19 +1,11 @@
-h1{
-            color: blue;
-        }
-p{
-            color: green;
-        }
-        /* using dot select the class */
-.para2{
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            color: red;
-        }
-.p2{
-            color:brown
-        }
-        /* Select ID Using #*/
-
-        #para3{
-            color: aqua;
-        }
+.one{
+    height: 300px;
+    width: 300px;
+    /* For Container*/
+    background-color: red;
+}
+.two{
+    height: 200px;
+    width: 200px;
+    background-color: green;
+}
