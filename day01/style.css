@@ -3,9 +3,18 @@
     width: 300px;
     /* For Container*/
     background-color: red;
+    padding: 50px;
+    /*padding-left: 30px;*/
+    border: 20px solid brown;
+    /*margin: 50px;*/
+    /*margin-left: 30px:*/
+    /*box-sizing: border-box;*/
+    display: inline-block;
+    
 }
 .two{
     height: 200px;
     width: 200px;
-    background-color: green;
+    background-color: blue;
+    display: inline-block;
 }
