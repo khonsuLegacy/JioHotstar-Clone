@@ -11,8 +11,9 @@
     width: 800px;
     background-color: red;
 }
+
 .child{
-    height: 200px;
-    width: 50%;
+    height: 100%;
+    width: 150%;
     background-color: yellow;
 }
