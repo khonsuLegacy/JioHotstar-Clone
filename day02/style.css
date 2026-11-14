@@ -8,15 +8,28 @@
  }
 .products{
     width: 100%;
-    height: 500px;
+    height: 800px;
     background-color: grey;
+    display: flex; /* grey area is flexbox*/
+    /*flex-direction: column; by default it is row*/
+     /*flex-direction: row-reverse; green-yellow-red this sequence*/
+     /*row*/
+
+     justify-content: space-between;
 }
-.prod{
-    width: 20%;
-    height: 300px;
+.child{
+    width: 100px;
+    height: 100px;
+    
+
+}
+/* flex items */
+.one{
     background-color: red;
-    font-size: 50px;
-    margin-left: 4%;
-    margin-top: 100px;
-    display: inline-block;
+}
+.two{
+    background-color: yellow;
+}
+.three{
+    background-color: greenyellow;
 }
