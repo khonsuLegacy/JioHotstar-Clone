@@ -14,11 +14,16 @@
     /*flex-direction: column; by default it is row*/
      /*flex-direction: row-reverse; green-yellow-red this sequence*/
      /*row*/
-    /*justify-content: space-evenly;
+    /*justify-content: space-evenly;*/
+     
+     
+     /*justify-content: space-evenly;
      align-items: center;*/
-     flex-direction: column;
-     justify-content: space-evenly;
-     align-items: center;
+     flex-wrap: wrap;
+     column-gap:50px;
+     row-gap: 50px;
+     align-content: flex-start;
+     
 }
 .child{
     width: 100px;
