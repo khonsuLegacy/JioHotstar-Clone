@@ -1,0 +1,17 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+.products{
+    width: 50%;
+    background-color: gray;
+    padding: 80px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+.product{
+    width:20%;
+    height: 400px;
+    background-color: red;
+}
