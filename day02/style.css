@@ -1,0 +1,13 @@
+/* Universal Class selector*/
+/* Select every element */
+
+*{
+    margin: 0px;
+    padding:0px ;
+
+ }
+.one{
+    height: 200px;
+    width: 200px;
+    background-color: red;
+}
