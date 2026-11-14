@@ -7,7 +7,12 @@
 
  }
 .one{
-    height: 200px;
-    width: 200px;
+    height: 400px;
+    width: 800px;
     background-color: red;
+}
+.child{
+    height: 200px;
+    width: 50%;
+    background-color: yellow;
 }
