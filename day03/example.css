@@ -13,6 +13,8 @@
     color: white;
     /* I want the header fixed*/
     position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .logo{
@@ -58,6 +60,7 @@
     /* justify-content: space-evenly; --> Always use the leftover space ---> but i want 4 element in a row*/
     /*flex trying to fit all the boxes in a place but i dont want it */
     flex-wrap: wrap;
+    margin-top:80px ;
 
 }
 .prod{
