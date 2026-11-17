@@ -16,12 +16,22 @@
 
 
 }
+.two{
+    height: 200px;
+    width: 200px;
+    background-color: green;
+    font-size: 50px;
+}
 
 
 /*rotation*/
 /*Scaling*/
+/*translating*/
 
 .one:hover{
     /*transform: rotateX(45deg) rotateY(45deg);*/
-    transform: scale(2 );
+   transform: scale(2 ); /* will not effect on other elemenet */
+   /* transform: translateY(100px) translateX(100px);*/
+   /* margin-left: 100px;
+   margin-top: 100px;*/ /* margin-left and margin-top will hamper my second element like i hover on the red element but it also affect the green element */
 }
