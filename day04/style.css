@@ -1,0 +1,27 @@
+*{
+    margin:0px;
+    padding:0px;
+
+}
+
+
+
+.one{
+    height: 400px;
+    width: 400px;
+    background-color: red;
+    margin:200px;
+    transition: .3s;
+    font-size: 100px;
+
+
+}
+
+
+/*rotation*/
+/*Scaling*/
+
+.one:hover{
+    /*transform: rotateX(45deg) rotateY(45deg);*/
+    transform: scale(2 );
+}
