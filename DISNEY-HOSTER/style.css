@@ -1,0 +1,6 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    /*for all the elements i want padding will conside as the given height and width */
+    box-sizing: border-box;
+}
