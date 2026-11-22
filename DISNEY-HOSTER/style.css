@@ -4,3 +4,64 @@
     /*for all the elements i want padding will conside as the given height and width */
     box-sizing: border-box;
 }
+
+/*Left side navigation style */
+
+.navigation{
+    width: 5%;
+    height: 100vh; /* 100 view port height*/
+    background-color: #16181f;
+    padding: 30px 10px; /* top-botton left-right */
+    flex-direction: column;
+    row-gap: 200px;
+    position: relative; /* So the nav doesnot go to the viewport */
+}
+.logo{
+    width: 100%;
+    height: 100px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+}
+.logo-svg {
+    width: 55px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    margin: 0 auto 25px;
+}
+.nav{
+    width:90px;
+    height: 100vh;
+   /* background-color: red; */
+    position: absolute; 
+    align-self: center;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links{
+    /*background-color: yellow;*/
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+    color: white;
+    opacity: .7;
+    cursor: pointer;
+    font-size: 18px;
+
+}
+
+.nav-link{
+    padding: 20px 0px;
+    opacity: .7;
+}
+
+.nav-link:hover{
+    opacity: 2;
+    
+}
