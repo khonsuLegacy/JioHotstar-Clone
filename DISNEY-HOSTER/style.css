@@ -50,18 +50,21 @@
     align-items: center;
     list-style-type: none;
     color: white;
-    opacity: .7;
+    
     cursor: pointer;
-    font-size: 18px;
+    font-size: 22px;
 
 }
 
 .nav-link{
     padding: 20px 0px;
     opacity: .7;
+    transition: all 0.2s ease;
 }
 
 .nav-link:hover{
-    opacity: 2;
+    opacity: 1;
+    
+    transform: scale(1.1);
     
 }
