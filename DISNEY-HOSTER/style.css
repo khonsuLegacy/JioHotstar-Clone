@@ -4,3 +4,19 @@
     /*for all the elements i want padding will conside as the given height and width */
     box-sizing: border-box;
 }
+
+/*Left side navigation style */
+
+.navigation{
+    width: 5%;
+    height: 100vh; /* 100 view port height*/
+    background-color: #16181f;
+    padding: 30px 10px; /* top-botton left-right */
+}
+.logo{
+    width: 100%;
+    height: 100px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+}
