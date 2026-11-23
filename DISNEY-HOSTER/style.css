@@ -141,18 +141,21 @@ body {
     width: 100%;
     height: 90vh;
     display: flex;
-    background-color: #16181f;
+    background-color: transparent;
     position: relative;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 /* BANNER SLIDER */
 
 .banner-slider {
     position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    top: 0;
+    left: 5%;
+    width: 95%;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
 }
 
 .banner-slider img {
@@ -179,20 +182,24 @@ body {
     16.66%, 100% { opacity: 0; }
 }
 
-/* BANNER OVERLAYS */
+/* OVERLAYS STAY FIXED OVER THE BANNER */
+.banner-overlay1,
+.banner-overlay2 {
+    position: fixed;
+    top: 0;
+    left: 5%;
+    width: 95%;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+}
 
 .banner-overlay1 {
-    position: absolute;
-    inset: 0;
     background: linear-gradient(to right, #16181f 16%, transparent 65%);
-    z-index: 1;
 }
 
 .banner-overlay2 {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, #16181f 8%, transparent 50%);
-    z-index: 1;
+    background: linear-gradient(to top, #16181f 10%, transparent 50%);
 }
 
 /* BANNER MOVIE DETAILS */
@@ -303,4 +310,12 @@ body {
 .hero:hover .banner-slider img,
 .hero:hover .movie-info {
     animation-play-state: paused;
+}
+
+.main-area {
+    width: 100%;
+    height: 100vh; /* Tall enough so you can scroll and see it cover the banner */
+    background-color: red;
+    position: relative;
+    z-index: 3;
 }
