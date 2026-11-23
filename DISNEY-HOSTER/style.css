@@ -259,6 +259,7 @@ body {
     font-size: 16.8px;
     font-weight: 800;
     color: rgb(255, 255, 255);
+    padding: 0 0 5px 0;
 
 }
 .movie-info p.text-type {
@@ -266,6 +267,7 @@ body {
     font-weight: 700;
     margin-top: 5px;
     color: rgb(197, 193, 193);
+    padding: 5px 0 0 0;
 }
 .movie-info p:first-of-type {
     color: #3b82f6;
@@ -278,6 +280,7 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
+    padding: 25px 0 0 0;
 }
 
 .watch-btn {
