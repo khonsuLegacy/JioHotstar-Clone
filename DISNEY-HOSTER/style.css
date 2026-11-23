@@ -282,7 +282,18 @@ body {
     line-height: 1.6;
     color: #e1e6f0;
 }
+.movie-info p.test-type2 {
+    font-size: 16.8px;
+    font-weight: 800;
+    color: rgb(255, 255, 255);
 
+}
+.movie-info p.text-type {
+    font-size: 16px;      
+    font-weight: 700;
+    margin-top: 5px;
+    color: rgb(197, 193, 193);
+}
 .movie-info p:first-of-type {
     color: #3b82f6;
 }
@@ -333,9 +344,20 @@ body {
 }
 
 /* PAUSE BOTH SLIDESHOWS ON HOVER */
+/*  custom hover area */
+.pause-zone {
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    width: 100%;
+    height: 350px;
+    z-index: 2;
+    /*border: 2px dashed yellow; */ 
+}
 
-.hero:hover .banner-slider img,
-.hero:hover .movie-info {
+/* Pause slideshow when mouse enters that box */
+.hero:has(.pause-zone:hover) .banner-slider img,
+.hero:has(.pause-zone:hover) .movie-info {
     animation-play-state: paused;
 }
 
