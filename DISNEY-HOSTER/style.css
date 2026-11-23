@@ -5,18 +5,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-.main{
-    width: 100%;
-    position: relative;/* if i give position to anything else they always come to main not to the viewport*/
-    display: flex;
-}
-.main-page{
-    width: 95%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin-left: 5%;
-}
 
 body {
     background-color: #16181f;
@@ -55,8 +43,6 @@ body {
     z-index: 10;
     overflow: hidden;
     transition: width 0.3s ease, background 0.3s ease;
-    row-gap: 200px;
-    position: fixed; /* So the nav doesnot go to the viewport */
 }
 
 /* EXPAND SIDEBAR WITH GRADIENT OVERLAY ON HOVER */
@@ -76,7 +62,6 @@ body {
     display: flex;
     justify-content: center;
     z-index: 2;
-    
 }
 
 .logo-svg {
@@ -89,20 +74,12 @@ body {
 
 .nav {
     width: 100%;
-.nav{
-    width:100%;
-    height: 100vh;
-   /* background-color: red; */
-    position: absolute; 
-    align-self: center;
-    top: 0;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
     display: flex;
     align-items: center;
-    
 }
 
 .nav-links {
@@ -111,10 +88,6 @@ body {
     flex-direction: column;
     list-style-type: none;
     color: white;
-    
-    cursor: pointer;
-    font-size: 22px;
-    opacity: .7;
     cursor: pointer;
 }
 
@@ -367,186 +340,4 @@ body {
     background-color: red;
     position: relative;
     z-index: 3;
-.nav-link{
-    padding: 20px 0px;
-    opacity: .7;
-    transition: all 0.2s ease;
-}
-
-.nav-link:hover{
-    opacity: 1;
-    
-    transform: scale(1.1);
-}
-
-.nav-link:hover{
-    opacity: 2;
-    
-}
-/*banner*/
-.banner{
-    width: 100%;
-    height: 90vh;
-    display: flex;
-    background-color: #16181f;
-    position: fixed;
-    overflow: hidden;
-}
-/* Hide radio buttons */
-.banner input {
-    display: none;
-}
-/* Video container */
-.banner-slides {
-    position: absolute;
-    inset: 0;
-}
-/* All videos */
-.slide {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-}
-
-/* Selected video */
-#b1:checked ~ .banner-slides video:nth-child(1),
-#b2:checked ~ .banner-slides video:nth-child(2),
-#b3:checked ~ .banner-slides video:nth-child(3),
-#b4:checked ~ .banner-slides video:nth-child(4),
-#b5:checked ~ .banner-slides video:nth-child(5),
-#b6:checked ~ .banner-slides video:nth-child(6) {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* Thumbnail section */
-.slider-thumbnails {
-    position: absolute;
-    bottom: 25px;
-    right: 30px;
-    z-index: 5;
-    display: flex;
-    gap: 10px;
-}
-
-/* Thumbnail */
-.slider-thumbnails label {
-    width: 80px;
-    height: 45px;
-    border: 2px solid transparent;
-    border-radius: 7px;
-    overflow: hidden;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: 0.3s;
-}
-
-.slider-thumbnails img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Active thumbnail */
-#b1:checked ~ .slider-thumbnails label:nth-child(1),
-#b2:checked ~ .slider-thumbnails label:nth-child(2),
-#b3:checked ~ .slider-thumbnails label:nth-child(3),
-#b4:checked ~ .slider-thumbnails label:nth-child(4),
-#b5:checked ~ .slider-thumbnails label:nth-child(5),
-#b6:checked ~ .slider-thumbnails label:nth-child(6) {
-    opacity: 1;
-    border-color: white;
-    transform: scale(1.05);
-}
-
-.banner-slider {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.banner-slider img {
-    position: absolute;
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-    object-position: center top;
-
-    opacity: 0;
-    animation: autoSlide 18s infinite;
-}
-
-/* Six banners */
-
-.banner-slider img:nth-child(1) { animation-delay: 0s; }
-.banner-slider img:nth-child(2) { animation-delay: 3s; }
-.banner-slider img:nth-child(3) { animation-delay: 6s; }
-.banner-slider img:nth-child(4) { animation-delay: 9s; }
-.banner-slider img:nth-child(5) { animation-delay: 12s; }
-.banner-slider img:nth-child(6) { animation-delay: 15s; }
-
-/* Automatic slideshow */
-
-@keyframes autoSlide {
-    0% {
-        opacity: 0;
-    }
-
-    2% {
-        opacity: 1;
-    }
-
-    14.66% {
-        opacity: 1;
-    }
-
-    16.66% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-.banner-overlay1{
-    width: 100%;
-    height: 100%;
-    background:linear-gradient(to right,#16181f 16%,transparent,transparent);
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-}
-.banner-overlay2{
-    width: 100%;
-    height: 100%;
-    background:linear-gradient(to top,#16181f 4%,transparent,transparent);
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-}
-/* banner slider*/
-
-.banner1-img{
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-}
-
-
-.banner-movie{
-    width: 100%;
-    height: 90vh;
-    
-    background-color: aquamarine;
-    position: absolute;
-    margin-top: 40vh;
 }
