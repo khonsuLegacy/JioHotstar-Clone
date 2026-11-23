@@ -1,41 +1,69 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    /*for all the elements i want padding will conside as the given height and width */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
-.main{
+
+body {
+    background-color: #16181f;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+.main {
     width: 100%;
-    position: relative;/* if i give position to anything else they always come to main not to the viewport*/
+    position: relative;
     display: flex;
 }
-.main-page{
+
+.main-page {
     width: 95%;
+    margin-left: 5%;
     position: relative;
     display: flex;
     flex-direction: column;
-    margin-left: 5%;
 }
 
-/*Left side navigation style */
+/* LEFT SIDE NAVIGATION */
 
-.navigation{
+.navigation {
     width: 5%;
-    height: 100vh; /* 100 view port height*/
-    background-color: #16181f;
-    padding: 30px 10px; /* top-botton left-right */
+    min-width: 75px;
+    height: 100vh;
+    background: #16181f;
+    padding: 30px 0;
+    display: flex;
     flex-direction: column;
-    row-gap: 200px;
-    position: fixed; /* So the nav doesnot go to the viewport */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    overflow: hidden;
+    transition: width 0.3s ease, background 0.3s ease;
 }
-.logo{
-    width: 100%;
+
+/* EXPAND SIDEBAR WITH GRADIENT OVERLAY ON HOVER */
+.navigation:hover {
+    width: 240px;
+    background: linear-gradient(
+        to right,
+        #0f1014 25%,
+        rgba(15, 16, 20, 0.85) 55%,
+        transparent 100%
+    );
+}
+
+.logo {
+    width: 75px;
     height: 100px;
-    /* background-color: red; */
     display: flex;
     justify-content: center;
-    
+    z-index: 2;
 }
+
 .logo-svg {
     width: 55px;
     height: auto;
@@ -43,135 +71,85 @@
     object-fit: contain;
     margin: 0 auto 25px;
 }
-.nav{
-    width:100%;
-    height: 100vh;
-   /* background-color: red; */
-    position: absolute; 
-    align-self: center;
-    top: 0;
+
+.nav {
+    width: 100%;
     height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
     display: flex;
     align-items: center;
-    
 }
 
-.nav-links{
-    /*background-color: yellow;*/
+.nav-links {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     list-style-type: none;
     color: white;
-    
     cursor: pointer;
-    font-size: 22px;
-    opacity: .7;
-    cursor: pointer;
+}
+
+.nav-link {
+    width: 100%;
+    padding: 18px 0 18px 26px; /* Keeps icons locked in place while expanding */
+    display: flex;
+    align-items: center;
+    gap: 20px;
     font-size: 18px;
-
+    opacity: 0.65;
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.nav-link{
-    padding: 20px 0px;
-    opacity: .7;
-    transition: all 0.2s ease;
+.nav-link i {
+    font-size: 20px;
+    min-width: 22px;
+    text-align: center;
 }
 
-.nav-link:hover{
+/* HIDDEN TEXT BY DEFAULT */
+.nav-link span {
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-12px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* REVEAL TEXT WHEN SIDEBAR IS HOVERED */
+.navigation:hover .nav-link span {
     opacity: 1;
-    
-    transform: scale(1.1);
+    transform: translateX(0);
 }
 
-.nav-link:hover{
-    opacity: 2;
-    
+/* HIGHLIGHT ACTIVE OR HOVERED ITEM */
+.nav-link.active,
+.nav-link:hover {
+    opacity: 1;
+    color: #ffffff;
 }
-/*banner*/
-.banner{
+
+.nav-link:hover {
+    transform: translateX(4px);
+}
+
+/* HERO BANNER */
+
+.hero {
     width: 100%;
     height: 90vh;
     display: flex;
     background-color: #16181f;
-    position: fixed;
+    position: relative;
     overflow: hidden;
 }
-/* Hide radio buttons */
-.banner input {
-    display: none;
-}
-/* Video container */
-.banner-slides {
-    position: absolute;
-    inset: 0;
-}
-/* All videos */
-.slide {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-}
 
-/* Selected video */
-#b1:checked ~ .banner-slides video:nth-child(1),
-#b2:checked ~ .banner-slides video:nth-child(2),
-#b3:checked ~ .banner-slides video:nth-child(3),
-#b4:checked ~ .banner-slides video:nth-child(4),
-#b5:checked ~ .banner-slides video:nth-child(5),
-#b6:checked ~ .banner-slides video:nth-child(6) {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* Thumbnail section */
-.slider-thumbnails {
-    position: absolute;
-    bottom: 25px;
-    right: 30px;
-    z-index: 5;
-    display: flex;
-    gap: 10px;
-}
-
-/* Thumbnail */
-.slider-thumbnails label {
-    width: 80px;
-    height: 45px;
-    border: 2px solid transparent;
-    border-radius: 7px;
-    overflow: hidden;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: 0.3s;
-}
-
-.slider-thumbnails img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Active thumbnail */
-#b1:checked ~ .slider-thumbnails label:nth-child(1),
-#b2:checked ~ .slider-thumbnails label:nth-child(2),
-#b3:checked ~ .slider-thumbnails label:nth-child(3),
-#b4:checked ~ .slider-thumbnails label:nth-child(4),
-#b5:checked ~ .slider-thumbnails label:nth-child(5),
-#b6:checked ~ .slider-thumbnails label:nth-child(6) {
-    opacity: 1;
-    border-color: white;
-    transform: scale(1.05);
-}
+/* BANNER SLIDER */
 
 .banner-slider {
-    position: absolute;
+    position: fixed;
     inset: 0;
     width: 100%;
     height: 100%;
@@ -180,18 +158,13 @@
 .banner-slider img {
     position: absolute;
     inset: 0;
-
     width: 100%;
     height: 100%;
-
     object-fit: cover;
     object-position: center top;
-
     opacity: 0;
     animation: autoSlide 18s infinite;
 }
-
-/* Six banners */
 
 .banner-slider img:nth-child(1) { animation-delay: 0s; }
 .banner-slider img:nth-child(2) { animation-delay: 3s; }
@@ -200,59 +173,134 @@
 .banner-slider img:nth-child(5) { animation-delay: 12s; }
 .banner-slider img:nth-child(6) { animation-delay: 15s; }
 
-/* Automatic slideshow */
-
 @keyframes autoSlide {
-    0% {
-        opacity: 0;
-    }
-
-    2% {
-        opacity: 1;
-    }
-
-    14.66% {
-        opacity: 1;
-    }
-
-    16.66% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 0;
-    }
+    0%, 2% { opacity: 0; }
+    4%, 14% { opacity: 1; }
+    16.66%, 100% { opacity: 0; }
 }
-.banner-overlay1{
-    width: 100%;
-    height: 100%;
-    background:linear-gradient(to right,#16181f 16%,transparent,transparent);
+
+/* BANNER OVERLAYS */
+
+.banner-overlay1 {
     position: absolute;
     inset: 0;
+    background: linear-gradient(to right, #16181f 16%, transparent 65%);
     z-index: 1;
 }
-.banner-overlay2{
-    width: 100%;
-    height: 100%;
-    background:linear-gradient(to top,#16181f 4%,transparent,transparent);
+
+.banner-overlay2 {
     position: absolute;
     inset: 0;
+    background: linear-gradient(to top, #16181f 8%, transparent 50%);
     z-index: 1;
 }
-/* banner slider*/
 
-.banner1-img{
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
+/* BANNER MOVIE DETAILS */
+
+.banner-movie {
+    position: absolute;
+    bottom: 60px;
+    left: 40px;
+    z-index: 2;
 }
 
+.movie-details {
+    position: relative;
+    width: 420px;
+    padding-top: 260px; /* Reserves space for the stacked movie-info blocks above the buttons */
+}
 
-.banner-movie{
-    width: 100%;
-    height: 90vh;
-    
-    background-color: aquamarine;
+.movie-info {
     position: absolute;
-    margin-top: 40vh;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    animation: movieSlide 18s infinite;
+}
+
+.movie-info:nth-child(1) { animation-delay: 0s; }
+.movie-info:nth-child(2) { animation-delay: 3s; }
+.movie-info:nth-child(3) { animation-delay: 6s; }
+.movie-info:nth-child(4) { animation-delay: 9s; }
+.movie-info:nth-child(5) { animation-delay: 12s; }
+.movie-info:nth-child(6) { animation-delay: 15s; }
+
+@keyframes movieSlide {
+    0%, 2% { opacity: 0; }
+    4%, 14% { opacity: 1; }
+    16.66%, 100% { opacity: 0; }
+}
+
+.movie-info img {
+    width: 100%;
+    max-width: 280px;
+    max-height: 120px;
+    object-fit: contain;
+    object-position: left;
+    margin-bottom: 14px;
+    display: block;
+}
+
+.movie-info p {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #e1e6f0;
+}
+
+.movie-info p:first-of-type {
+    color: #3b82f6;
+}
+
+/* ACTION BUTTONS */
+
+.action-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.watch-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 250px;
+    height: 52px;
+    border: none;
+    border-radius: 9px;
+    background: linear-gradient(to right, #078df5, #174dbb, #e60072);
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.watch-btn:hover {
+    filter: brightness(1.15);
+}
+
+.add-btn {
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 30px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+/* PAUSE BOTH SLIDESHOWS ON HOVER */
+
+.hero:hover .banner-slider img,
+.hero:hover .movie-info {
+    animation-play-state: paused;
 }
