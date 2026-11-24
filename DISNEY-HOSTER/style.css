@@ -208,19 +208,19 @@ body {
     position: absolute;
     bottom: 60px;
     left: 40px;
-    z-index: 2;
+    z-index: 3;
 }
 
 .movie-details {
-    position: relative;
+    display: grid;
     width: 420px;
-    padding-top: 260px; /* Reserves space for the stacked movie-info blocks above the buttons */
+    row-gap: 20px;
 }
 
 .movie-info {
-    position: absolute;
-    top: 0;
-    left: 0;
+    grid-column: 1;
+    grid-row: 1;
+    align-self: end;
     width: 100%;
     opacity: 0;
     animation: movieSlide 18s infinite;
@@ -267,7 +267,7 @@ body {
     font-weight: 700;
     margin-top: 5px;
     color: rgb(197, 193, 193);
-    padding: 5px 0 0 0;
+    padding: 0 0 5px 0;
 }
 .movie-info p:first-of-type {
     color: #3b82f6;
@@ -276,11 +276,12 @@ body {
 /* ACTION BUTTONS */
 
 .action-button {
+    grid-column: 1;
+    grid-row: 2;
     width: 100%;
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 25px 0 0 0;
 }
 
 .watch-btn {
@@ -297,12 +298,20 @@ body {
     font-size: 18px;
     font-weight: 700;
     cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
 }
 
 .watch-btn:hover {
-    filter: brightness(1.15);
+    filter: brightness(1.1);
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(230, 0, 114, 0.35), 0 0 6px rgba(7, 141, 245, 0.25);
 }
 
+/*Keep slideshow paused when hovering either .pause-zone OR .banner-movie */
+.hero:has(.pause-zone:hover, .banner-movie:hover) .banner-slider img,
+.hero:has(.pause-zone:hover, .banner-movie:hover) .movie-info {
+    animation-play-state: paused;
+}
 .add-btn {
     width: 52px;
     height: 52px;
@@ -343,4 +352,98 @@ body {
     background-color: red;
     position: relative;
     z-index: 3;
+    
+}
+
+
+/* movie section css*/
+
+.movie-heading{
+    width: 100%;
+    padding: 20px 0 20px 10px;
+    /*background-color: rgb(0, 8, 255);*/
+    
+
+}
+
+.movie-section-header{
+    background-color: #e60072;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    padding-right: 15px;
+
+}
+.section-title{
+    font-size: 21px;
+    font-weight: 600;
+
+}
+.va{
+    font-weight: 500;
+    opacity: .7;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.va:hover{
+    opacity: 1;
+}
+.movies
+{
+    width: 100%;
+    background-color: beige;
+    margin-top: 5px;
+    position: relative;
+    
+
+}
+
+.swiper-left{
+    background: linear-gradient(88deg,#0f1014 0.62%,rgba(15,16,20,0) 99.33%);
+    position: absolute;
+    height: 100%;
+    width: 3% ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    color: white;
+}
+
+.swiper-right{
+    background: linear-gradient(269.25deg,#0f1014 0.62%,rgba(15,16,20,0) 99.33%);
+    position: absolute;
+    height: 100%;
+    right: 0;
+    width: 3%;
+    display: flex;
+    padding-right: 20px;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 25px;
+    color: white;
+}
+
+
+.slider{
+    width: fit-content;
+    background-color: purple;
+    display: flex;
+    column-gap: 8px;
+    padding: 10px;
+    transition: .8s;
+}
+
+.movie{
+    height: 315px;
+    width: 237px;
+    background-color: #078df5;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.movie-img{
+    width: 100%;
+    margin-top: -55px;
+
 }
