@@ -348,7 +348,7 @@ body {
 
 .main-area {
     width: 100%;
-    height: 100vh; /* Tall enough so you can scroll and see it cover the banner */
+    height: 200vh; /* Tall enough so you can scroll and see it cover the banner */
     background-color: red;
     position: relative;
     z-index: 3;
@@ -367,7 +367,7 @@ body {
 }
 
 .movie-section-header{
-    background-color: #e60072;
+    /*background-color: #e60072;*/
     display: flex;
     justify-content: space-between;
     color: white;
@@ -375,7 +375,7 @@ body {
 
 }
 .section-title{
-    font-size: 21px;
+    font-size: 31px;
     font-weight: 600;
 
 }
@@ -395,6 +395,7 @@ body {
     background-color: beige;
     margin-top: 5px;
     position: relative;
+    overflow: hidden;
     
 
 }
@@ -445,5 +446,80 @@ body {
 .movie-img{
     width: 100%;
     margin-top: -55px;
+
+}
+
+
+/*Promo banner*/
+
+.promo-section {
+    width: 100%;
+    
+}
+
+.promo-banner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.promo-banner > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+    display: block;
+}
+
+
+.promo-content {
+    position: absolute;
+    top: 25px;          
+    left: 30px; 
+    right: 0;        /* Adjust horizontal position */
+    z-index: 2;
+}
+
+.promo-badge {
+    font-size: 40px;
+    display: flex;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 130px;
+    
+    
+}
+
+.sub-promo-content{
+    font-size: 24px;
+    color: #FFFFFF99;
+    margin: 4px 0 0;
+
+}
+
+.va1 {
+    position: absolute;
+    right: 35px;
+    top: 195px; /* Increase this number to push it further down */
+    opacity: .7;
+    cursor: pointer;
+}
+.va1:hover{
+    opacity: 1;
+}
+
+.promo-banner .movie-heading {
+    position: absolute;
+    bottom: 20px; /* Increase to move it higher, decrease to move it lower */
+    left: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+
+.section-title1{
+    font-size: 31px;
+    font-weight: 600;
 
 }
