@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Space | Developer & Feedback</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="myspace.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <a href="index.html" class="back-btn">
+            <i class="ri-arrow-left-line"></i>
+            <span>Back to Home</span>
+        </a>
+        <span class="page-badge">MY SPACE</span>
+    </header>
+
+    <main class="container">
+
+        <!-- Developer Profile -->
+        <section class="card">
+            <div class="dev-header">
+                <div class="avatar-ring">
+                    <img src="https://github.com/khonsuLegacy.png" alt="Soumyabrata Mahapatra">
+                </div>
+                <div class="dev-meta">
+                    <h1>Soumyabrata Mahapatra</h1>
+                    <p class="dev-handle">
+                        <i class="ri-github-fill"></i> @khonsuLegacy
+                    </p>
+                    <span class="role-pill">Web &amp; Backend Developer</span>
+                </div>
+            </div>
+
+            <p class="dev-bio">
+                Designed and developed this JioHotstar streaming platform clone with custom carousels,
+                responsive layouts, gradient hover animations, and live category showcases. Explore the
+                source code or check out my other projects on GitHub.
+            </p>
+
+            <p class="section-label">Built With</p>
+            <div class="tech-stack">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Responsive UI</span>
+            </div>
+
+            <div class="dev-actions">
+                <a href="https://github.com/khonsuLegacy" target="_blank" rel="noopener noreferrer" class="btn-gradient">
+                    <i class="ri-github-line"></i>
+                    <span>Visit GitHub Profile</span>
+                </a>
+                <a href="https://github.com/khonsuLegacy/JioHotstar-Clone" target="_blank" rel="noopener noreferrer" class="btn-outline">
+                    <i class="ri-code-s-slash-line"></i>
+                    <span>View Project Repository</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Feedback Form -->
+        <section class="card">
+            <div id="feedbackContainer">
+                <div class="form-header">
+                    <h2>Share Your Feedback</h2>
+                    <p>Spotted a bug or have a feature idea? Let me know what you think.</p>
+                </div>
+
+                <form id="feedbackForm">
+                    <div class="form-group">
+                        <label>Rate Your Experience</label>
+                        <div class="star-rating" id="starRating">
+                            <i class="ri-star-fill" data-value="1"></i>
+                            <i class="ri-star-fill" data-value="2"></i>
+                            <i class="ri-star-fill" data-value="3"></i>
+                            <i class="ri-star-fill" data-value="4"></i>
+                            <i class="ri-star-fill" data-value="5"></i>
+                        </div>
+                        <input type="hidden" id="ratingValue" value="5">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userName">Your Name</label>
+                        <input type="text" id="userName" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userEmail">Email Address</label>
+                        <input type="email" id="userEmail" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="feedbackType">Category</label>
+                        <select id="feedbackType">
+                            <option value="UI/UX Design">UI / UX Design</option>
+                            <option value="Feature Request">Feature Request</option>
+                            <option value="Bug Report">Bug Report</option>
+                            <option value="General Feedback">General Feedback</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="feedbackMsg">Message</label>
+                        <textarea id="feedbackMsg" placeholder="Write your feedback here..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-gradient">
+                        <i class="ri-send-plane-fill"></i>
+                        <span>Submit Feedback</span>
+                    </button>
+                </form>
+            </div>
+
+            <div class="success-box" id="successBox">
+                <i class="ri-checkbox-circle-fill"></i>
+                <h3>Thank You for Your Feedback!</h3>
+                <p id="successText">Your message has been recorded.</p>
+                <button type="button" class="btn-outline" id="resetBtn">Send Another Feedback</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Interactive Star Rating
+        const stars = document.querySelectorAll("#starRating i");
+        const ratingInput = document.getElementById("ratingValue");
+
+        function setRating(val) {
+            ratingInput.value = val;
+            stars.forEach(star => {
+                star.classList.toggle("active", Number(star.dataset.value) <= val);
+            });
+        }
+
+        // Default to 5 stars
+        setRating(5);
+
+        stars.forEach(star => {
+            star.addEventListener("click", () => setRating(Number(star.dataset.value)));
+        });
+
+        // Feedback Form Submission
+        const form = document.getElementById("feedbackForm");
+        const feedbackContainer = document.getElementById("feedbackContainer");
+        const successBox = document.getElementById("successBox");
+        const successText = document.getElementById("successText");
+        const resetBtn = document.getElementById("resetBtn");
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById("userName").value.trim();
+            const rating = ratingInput.value;
+
+            successText.textContent = `Thanks, ${name}! We appreciate your ${rating}-star review.`;
+            feedbackContainer.style.display = "none";
+            successBox.style.display = "block";
+        });
+
+        resetBtn.addEventListener("click", () => {
+            form.reset();
+            setRating(5);
+            successBox.style.display = "none";
+            feedbackContainer.style.display = "block";
+        });
+    </script>
+
+</body>
+</html>
