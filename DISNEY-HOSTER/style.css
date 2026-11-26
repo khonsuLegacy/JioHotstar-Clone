@@ -349,8 +349,8 @@ body {
 
 .main-area {
     width: 100%;
-    height: 100vh; /* Tall enough so you can scroll and see it cover the banner */
-    background-color: red;
+    height: 200vh; /* Tall enough so you can scroll and see it cover the banner */
+    background-color: #16181f;
     position: relative;
     z-index: 3;
     
@@ -368,7 +368,7 @@ body {
 }
 
 .movie-section-header{
-    background-color: #e60072;
+    /*background-color: #e60072;*/
     display: flex;
     justify-content: space-between;
     color: white;
@@ -376,7 +376,7 @@ body {
 
 }
 .section-title{
-    font-size: 21px;
+    font-size: 31px;
     font-weight: 600;
 
 }
@@ -393,9 +393,11 @@ body {
 .movies
 {
     width: 100%;
-    background-color: beige;
+    /*background-color: beige;*/
     margin-top: 5px;
     position: relative;
+    display: flex;
+    overflow: hidden;
     
 
 }
@@ -410,6 +412,7 @@ body {
     align-items: center;
     font-size: 25px;
     color: white;
+     z-index: 50;
 }
 
 .swiper-right{
@@ -424,12 +427,13 @@ body {
     align-items: center;
     font-size: 25px;
     color: white;
+    z-index: 50;
 }
 
 
 .slider{
     width: fit-content;
-    background-color: purple;
+   /* background-color: purple;*/
     display: flex;
     column-gap: 8px;
     padding: 10px;
@@ -439,12 +443,184 @@ body {
 .movie{
     height: 315px;
     width: 237px;
-    background-color: #078df5;
+   /* background-color: #078df5;*/
     overflow: hidden;
     border-radius: 10px;
-}
-.movie-img{
-    width: 100%;
-    margin-top: -55px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    
 
+}
+
+.movie:hover{
+    transform: scale(1.12);
+    z-index: 10;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.8);
+}
+
+
+
+
+
+.movie-img{
+    width: 237px;
+    margin-top: -55px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+
+}
+
+.movie-top .movie{
+    width: 276px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.top{
+    width: 276px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+}
+
+/*Promo banner*/
+
+.promo-section {
+    width: 100%;
+    
+}
+
+.promo-banner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.promo-banner > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+    display: block;
+}
+
+
+.promo-content {
+    position: absolute;
+    top: 25px;          
+    left: 30px; 
+    right: 0;        /* Adjust horizontal position */
+    z-index: 2;
+}
+
+.promo-badge {
+    font-size: 40px;
+    display: flex;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 110px;
+    
+    
+}
+
+.sub-promo-content{
+    font-size: 24px;
+    color: #FFFFFF99;
+    padding-bottom: 15px;
+
+}
+
+.va1 {
+    position: absolute;
+    right: 35px;
+    top: 160px; /* Increase this number to push it further down */
+    opacity: .7;
+    cursor: pointer;
+}
+.va1:hover{
+    opacity: 1;
+}
+
+.promo-banner .movie-heading {
+    position: absolute;
+    bottom: 20px; /* Increase to move it higher, decrease to move it lower */
+    left: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+
+.section-title1{
+    font-size: 31px;
+    font-weight: 600;
+
+}
+
+.promo-badge-1 {
+    font-size: 35px;
+    display: flex;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 5px;
+    padding-left: 10px;
+    
+    
+}
+
+/*Brands*/
+
+.brands{
+    width:100%;
+    padding: 10px;
+   /* background-color: red;*/
+    display: flex;
+    column-gap: 8px;
+   
+}
+
+.brand{
+    width: 281px;
+    height: 158px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    
+    
+}
+
+.brand-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+/* JioHotstar Blue-to-Pink gradient border & dual-tone glow */
+.brand:hover {
+    border-color: transparent;
+    background:
+        linear-gradient(#0f1014, #0f1014) padding-box,
+        linear-gradient(90deg, #008cff, #5b32cf, #e1006f) border-box;
+    box-shadow:
+        -6px 0 22px rgba(0, 140, 255, 0.65),
+         6px 0 22px rgba(225, 0, 111, 0.65),
+         0 0 12px rgba(91, 50, 207, 0.5);
+}
+
+/* Zoom image on hover */
+.brand:hover .brand-img {
+    transform: scale(1.1);
+}
+
+/* Trigger shine sweep on hover */
+.brand:hover::after {
+    left: 150%;
+    transition: left 0.65s ease;
 }
